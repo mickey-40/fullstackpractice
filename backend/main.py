@@ -12,7 +12,7 @@ def get_contacts():
 @app.route("/create_contact", methods=["POST"])
 def create_contact():
   first_name = request.json.get("firstName")
-  last_name = request.json.get("LastName")
+  last_name = request.json.get("lastName")
   email = request.json.get("email")
 
   if not first_name or not last_name or not email:
@@ -46,7 +46,7 @@ def update_contact(user_id):
 
   return jsonify({"message": "User updated."}), 200
 
-@app.route("/delete_contact/<int:user_id", methods=["DELETE"])
+@app.route("/delete_contact/<int:user_id>", methods=["DELETE"])
 def delete_contact(user_id):
   contact = Contact.query.get(user_id)
 
